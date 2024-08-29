@@ -1,0 +1,23 @@
+{
+  "name": "allowed_domains",
+  "version": "1.0.0",
+  "description": "Demo allowed domains for Caddy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akamitch/allowed_domains.git"
+  },
+  "keywords": [
+    "caddy",
+    "tls+on_demand"
+  ],
+  "author": "Mitch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akamitch/allowed_domains/issues"
+  },
+  "homepage": "https://github.com/akamitch/allowed_domains#readme"
+}
