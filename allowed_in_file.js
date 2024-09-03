@@ -27,7 +27,7 @@ function isDomainAllowed(domain) {
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  console.log(`parsedUrl: ${parsedUrl}`);  
+  console.log(`parsedUrl.query.domain: ${parsedUrl.query.domain}`);  
   
   if (parsedUrl.pathname === '/check' && parsedUrl.query.domain) {
     const domain = parsedUrl.query.domain;
@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
       res.end('Domain is not allowed');
     }
   } else {
-    console.log(`parsedUrl: ${parsedUrl} Bad Request!!!!!`);  
+    console.log(`parsedUrl.query.domain: ${parsedUrl.query.domain} Bad Request!!!!!`);  
     res.writeHead(400, { 'Content-Type': 'text/plain' });
     res.end('Bad Request');
   }
@@ -54,9 +54,9 @@ server.listen(PORT, () => {
 });
 
 // Optionally, you can add a file watcher to reload domains if the file changes
-fs.watch(allowedDomainsFilePath, (eventType, filename) => {
+/* fs.watch(allowedDomainsFilePath, (eventType, filename) => {
   if (eventType === 'change') {
     console.log('Allowed domains file changed. Reloading...');
     allowedDomains = readAllowedDomains(allowedDomainsFilePath);
   }
-});
+}); */
