@@ -32,13 +32,16 @@ const server = http.createServer((req, res) => {
     const domain = parsedUrl.query.domain;
     
     if (isDomainAllowed(domain)) {
+      console.log(`${domain} Domain is allowed`);  
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end('Domain is allowed');
     } else {
+      console.log(`${domain} Domain is NOT allowed`);  
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Domain is not allowed');
     }
   } else {
+    console.log(`${domain} Bad Request!!!!!`);  
     res.writeHead(400, { 'Content-Type': 'text/plain' });
     res.end('Bad Request');
   }
