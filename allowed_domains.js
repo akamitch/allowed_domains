@@ -2,15 +2,10 @@ const http = require('http');
 const url = require('url');
 
 const allowedDomains = [
-  'autogravitytest.com',
-  'eazytestings.top',
-  'myrandomname.top',
-  'taystings.com',
-  'testeazygo.uk',
-  'testiffyyy.com',
-  'testingsnow.top',
+  'testudo.top',
+  'www.testudo.top',
   'testingzone.top',
-  'testudo.top'
+  'www.testingzone.top'
 ];
 
 const server = http.createServer((req, res) => {
@@ -23,7 +18,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end('Domain is allowed');
     } else {
-      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Domain is not allowed');
     }
   } else {
