@@ -27,6 +27,7 @@ function isDomainAllowed(domain) {
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
+  console.log(`parsedUrl: ${parsedUrl}`);  
   
   if (parsedUrl.pathname === '/check' && parsedUrl.query.domain) {
     const domain = parsedUrl.query.domain;
@@ -41,7 +42,7 @@ const server = http.createServer((req, res) => {
       res.end('Domain is not allowed');
     }
   } else {
-    console.log(`${domain} Bad Request!!!!!`);  
+    console.log(`parsedUrl: ${parsedUrl} Bad Request!!!!!`);  
     res.writeHead(400, { 'Content-Type': 'text/plain' });
     res.end('Bad Request');
   }
