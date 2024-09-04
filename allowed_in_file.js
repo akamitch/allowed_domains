@@ -14,7 +14,7 @@ function readAllowedDomains(filePath) {
 }
 
 // Path to the file containing allowed domains
-const allowedDomainsFilePath = './domains100.txt';
+const allowedDomainsFilePath = './domains.txt';
 
 // Read allowed domains
 let allowedDomains = readAllowedDomains(allowedDomainsFilePath);
