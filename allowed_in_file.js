@@ -25,19 +25,32 @@ function isDomainAllowed(domain) {
   return allowedDomains.has(domain);
 }
 
+function getCurrentDateTime() {
+  const now = new Date();
+  const formatted = now.toLocaleString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+  return formatted.replace(/\//g, '.').replace(',', '');
+}
+
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  console.log(`parsedUrl.query.domain: ${parsedUrl.query.domain}`);  
+  //console.log(`parsedUrl.query.domain: ${parsedUrl.query.domain}`);  
   
   if (parsedUrl.pathname === '/check' && parsedUrl.query.domain) {
     const domain = parsedUrl.query.domain;
     
     if (isDomainAllowed(domain)) {
-      console.log(`${domain} Domain is allowed`);  
+      console.log(`${getCurrentDateTime()} ${domain} Domain is allowed`);  
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end('Domain is allowed');
     } else {
-      console.log(`${domain} Domain is NOT allowed`);  
+      console.log(`${getCurrentDateTime()} ${domain} Domain is NOT allowed`);  
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Domain is not allowed');
     }
